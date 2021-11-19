@@ -1,0 +1,89 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* Clearing all elements */
+* {
+  margin: 0;                  
+  padding: 0;
+  box-sizing: border-box;
+  /* Borders and paddings are no longer added to total width and total height specified for the box */     
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  /* Every change to font better set in body selector, they are inherited in all body */   
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.7;
+  /* 1.7 times bigger than predefined line-height */           
+  color: #777;
+  padding: 30px;
+  /* Padding is not getting iherited. It make 30px padding around entire body */
+}
+
+.header {
+  height: 95vh;
+  /* Height of this element sholud be 95% of viewport height */
+  background-image: linear-gradient(
+    to right bottom,
+    rgba(126, 213, 111, 0.8),
+    rgba(40, 180, 133, 0.8)),
+  url(../img/hero.jpg);
+  /* We have two background images first on top gradient, and second under img */
+  background-size: cover;
+  /* Whatever the width of viewport or element is it will try to fit it into this box */ 
+  background-position: top;
+  /* Top(bottom or center) of background will always be in top border of container */
+  position: relative;
+  /*Positioned relative to its normal position. Now we can move it thanks to top, left,...*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* Property creates a clipping region that sets what part of an element should be shown.
+  First point top-left corner (next points clockwise) (bennettfeely.com/clippy/) */
+}
+
+.logo-box {
+  position: absolute;
+  /* Is positioned relative to the nearest positioned ancestor */ 
+  top: 40px;
+  left: 40px;
+}
+
+.logo {
+  height: 35px;
+}
+
+.text-box {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  /*Position to parent element */
+  transform: translate(-50%, -50%);
+  /* Element starting position is left and top border. We centered our element to itself position. */
+}
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+}
+
+/* Span element is by default inline element so it is like text
+  Block element take entire available space and next block element is forced to be under*/
+.heading-primary-main {
+  display: block;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 17.4px;
+}
