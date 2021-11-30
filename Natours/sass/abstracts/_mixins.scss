@@ -1,0 +1,11 @@
+@mixin clearfix {
+  &::after {
+  /* Insert some text after the content of each & element */
+    content: "";
+    /* Without this, sudo element will not appear on page */
+    display: table;
+    /* Clearfix standar to display table */ 
+    clear: both;
+    /* Clear float left or right */
+  }
+}
