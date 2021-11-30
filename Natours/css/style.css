@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*
 COLORS:
 
@@ -6,229 +7,176 @@ Medium green: #55c57a
 Dark green: #28b485
 
 */
-
 /* Clearing all elements */
 *,
 *::after,
 *::before {
-/* To prevent odd behaviours of ours pseudoclasses in the future */
-  margin: 0;                  
+  /* To prevent odd behaviours of ours pseudoclasses in the future */
+  margin: 0;
   padding: 0;
   box-sizing: inherit;
-  /* We forced the box-sizing to inherit from the body element*/     
-}
+  /* We forced the box-sizing to inherit from the body element*/ }
 
 html {
   font-size: 62.5%;
   /* We set this value to use rem instead of px in our stylesheet.
   We change 10px for 62.5%(=10px. default browser font size = 16px) to enable users better accessibility to our page. 
   They can now change default font-size of their browser (if they need to).
-  Previous versions od IE9 does not support rem*/
-}
+  Previous versions od IE9 does not support rem*/ }
 
 body {
   font-family: "Lato", sans-serif;
-  /* Every change to font better set in body selector, they are inherited in all body */   
+  /* Every change to font better set in body selector, they are inherited in all body */
   font-weight: 400;
   /* font-size: 16px; */
   line-height: 1.7;
-  /* 1.7 times bigger than predefined line-height */           
+  /* 1.7 times bigger than predefined line-height */
   color: #777;
   padding: 3rem;
   /* Padding is not getting iherited. It make 30px padding around entire body */
   box-sizing: border-box;
-  /* Borders and paddings are no longer added to total width and total height specified for the box */
-}
+  /* Borders and paddings are no longer added to total width and total height specified for the box */ }
 
 .header {
   height: 95vh;
   /* Height of this element sholud be 95% of viewport height */
-  background-image: linear-gradient(
-    to right bottom,
-    rgba(126, 213, 111, 0.8),
-    rgba(40, 180, 133, 0.8)),
-  url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
   /* We have two background images first on top gradient, and second under img */
   background-size: cover;
-  /* Whatever the width of viewport or element is it will try to fit it into this box */ 
+  /* Whatever the width of viewport or element is it will try to fit it into this box */
   background-position: top;
   /* Top(bottom or center) of background will always be in top border of container */
   position: relative;
   /*Positioned relative to its normal position. Now we can move it thanks to top, left,...*/
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   /* Property creates a clipping region that sets what part of an element should be shown.
-  First point top-left corner (next points clockwise) (bennettfeely.com/clippy/) */
-}
-
-.header__logo-box {
-  position: absolute;
-  /* Is positioned relative to the nearest positioned ancestor (position: relative;) */ 
-  top: 4rem;
-  left: 4rem;
-}
-
-.header__logo {
-  height: 3.5rem;
-}
-
-.header__text-box {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  /*Position to parent element */
-  transform: translate(-50%, -50%);
-  /* Element starting position is left and top border. We centered our element to itself position. */
-  text-align: center;
-  /* Property for .btn because display: inline-block is treated as text */
-}
+  First point top-left corner (next points clockwise) (bennettfeely.com/clippy/) */ }
+  .header__logo-box {
+    /* & ampersand copies the selector it is in. In this example & = .header */
+    position: absolute;
+    /* Is positioned relative to the nearest positioned ancestor (position: relative;) */
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /*Position to parent element */
+    transform: translate(-50%, -50%);
+    /* Element starting position is left and top border. We centered our element to itself position. */
+    text-align: center;
+    /* Property for .btn because display: inline-block is treated as text */ }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
-
   backface-visibility: hidden;
   /* Trick to avoid a little shaking in animation (in heading-primary-main and sub) */
   margin-bottom: 6rem;
-}
-
-/* Span element is by default inline element so it is like text
-  Block element take entire available space and next block element is forced to be under*/
-.heading-primary--main {
-  display: block;
-  font-size: 6rem;
-  font-weight: 400;
-  letter-spacing: 3.5rem;
-
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-  /* The speed of the animation depending on its phase */
-
-  /* 
-  Animation-delay: 3s;
-  Animation-iteration-count: 3;  X times it has to be run
-  */
-}
-
-.heading-primary--sub {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
-  letter-spacing: 1.75rem;
-
-  animation: moveInRight 1s ease-out;
-  /* CSS knows what is what (animation-name, duration, timing-function)*/
-}
+  /* Span element is by default inline element so it is like text
+  Block element take entire available space and next block element is forced to be under*/ }
+  .heading-primary--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* The speed of the animation depending on its phase */
+    /* 
+    Animation-delay: 3s;
+    Animation-iteration-count: 3;  X times it has to be run
+    */ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out;
+    /* CSS knows what is what (animation-name, duration, timing-function)*/ }
 
 /* What is happening in each frame in our animation function */
 @keyframes moveInLeft {
   /* What have to be done in x% of animation */
   0% {
-      opacity: 0;
-      transform: translateX(-10rem);
-    }
-
-    80% {
-      transform: translateX(1rem);
-    }
-
-    100% {
-      opacity: 1; /*krycie, nieprzezroczystość*/
-      transform: translateX(0);
-    }  
-}
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(1rem); }
+  100% {
+    opacity: 1;
+    /*krycie, nieprzezroczystość*/
+    transform: translateX(0); } }
 
 @keyframes moveInRight {
   0% {
-      opacity: 0;
-      transform: translateX(10rem);
-    }
-
-    80% {
-      transform: translateX(-1rem);
-    }
-
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }  
-}
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translateX(0); } }
 
 @keyframes moveInButton {
   0% {
-      opacity: 0;
-      transform: translateY(3rem);
-    }
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
-    100% {
-      opacity: 1;
-      transform: translate(0);
-    }  
-}
-
-/* :link is pseudo class - specjal state of selector that we use to style selector under specjal conditions */
-.btn:link,
-.btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  /* Underline */
-  padding: 1.5rem 4rem;
-  /* Top,bottom  left,right */
-  display: inline-block;
-  /* Inline-block, the top and bottom margins/paddings are respected, but with display: inline they are not */
-  border-radius: 10rem;
-  transition: all .2s;
-  /* Which properties we want to animate in states: All properties are enabled to be animated, time that we want */
-  position: relative;
-  font-size: 1.6rem;
-}
-
-.btn:hover {
-  transform: translateY(-0.3rem);
-  box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
-  /* <offset-x> <offset-y> <blur-radius>? <spread-radius>? <color>? */
-}
-
-.btn:active {
-  transform: translateY(-0.1rem);
-  box-shadow: 0 0.5rem 1rem rgba(0,0,0,.2);
-}
-
-.btn--white {
-  background-color: #fff;
-  color: #777;
-}
-
-/* It is treated as child of .btn */
-.btn::after {
-  content: "";
-  /* Have to add sth cause otherwise it will not work */
-  display: inline-block;
-  /* Like parent */
-  height: 100%;
-  width: 100%;
-  border-radius: 10rem;
-  /* 100% of parent properties */
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all .4s;
-}
-
-.btn--white::after {
-  background-color: #fff;
-}
-
-/* It is after sudoelement only when we have .btn on the hover state */
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-
-.btn--animated {
-  animation: moveInButton .5s ease-out .75s;
-  /* animation function, duration, timing-function, delay */
-  animation-fill-mode: backwards;
-  /* Set opacity 0 before animation start */
-}
+.btn {
+  /* :link is pseudo class - specjal state of selector that we use to style selector under specjal conditions */
+  /* It is treated as child of .btn */ }
+  .btn:link, .btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    /* Underline */
+    padding: 1.5rem 4rem;
+    /* Top,bottom  left,right */
+    display: inline-block;
+    /* Inline-block, the top and bottom margins/paddings are respected, but with display: inline they are not */
+    border-radius: 10rem;
+    transition: all .2s;
+    /* Which properties we want to animate in states: All properties are enabled to be animated, time that we want */
+    position: relative;
+    font-size: 1.6rem; }
+  .btn:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    /* <offset-x> <offset-y> <blur-radius>? <spread-radius>? <color>? */
+    /* It is after sudoelement only when we have .btn on the hover state */ }
+    .btn:hover::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0; }
+  .btn:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .btn--white {
+    background-color: #fff;
+    color: #777; }
+    .btn--white::after {
+      background-color: #fff; }
+  .btn::after {
+    content: "";
+    /* Have to add sth cause otherwise it will not work */
+    display: inline-block;
+    /* Like parent */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* 100% of parent properties */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s; }
+  .btn--animated {
+    animation: moveInButton .5s ease-out .75s;
+    /* animation function, duration, timing-function, delay */
+    animation-fill-mode: backwards;
+    /* Set opacity 0 before animation start */ }
