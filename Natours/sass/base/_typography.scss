@@ -1,0 +1,49 @@
+body {
+  font-family: "Lato", sans-serif;
+  /* Every change to font better set in body selector, they are inherited in all body */   
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  /* 1.7 times bigger than predefined line-height */           
+  color: $color-grey-dark;
+  padding: 3rem;
+  /* Padding is not getting iherited. It make 30px padding around entire body */
+}
+
+.heading-primary {
+  color: $color-white;
+  text-transform: uppercase;
+
+  backface-visibility: hidden;
+  /* Trick to avoid a little shaking in animation (in heading-primary-main and sub) */
+  margin-bottom: 6rem;
+
+  /* Span element is by default inline element so it is like text
+  Block element take entire available space and next block element is forced to be under*/
+  &--main {
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+  
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /* The speed of the animation depending on its phase */
+  
+    /* 
+    Animation-delay: 3s;
+    Animation-iteration-count: 3;  X times it has to be run
+    */
+  }
+  
+  &--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+  
+    animation: moveInRight 1s ease-out;
+    /* CSS knows what is what (animation-name, duration, timing-function)*/
+  }
+}

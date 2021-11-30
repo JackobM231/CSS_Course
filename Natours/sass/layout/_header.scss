@@ -1,0 +1,42 @@
+.header {
+  height: 95vh;
+  /* Height of this element sholud be 95% of viewport height */
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary-light, 0.8),
+    rgba($color-primary-dark, 0.8)),
+  url(../img/hero.jpg);
+  /* We have two background images first on top gradient, and second under img */
+  background-size: cover;
+  /* Whatever the width of viewport or element is it will try to fit it into this box */ 
+  background-position: top;
+  /* Top(bottom or center) of background will always be in top border of container */
+  position: relative;
+  /*Positioned relative to its normal position. Now we can move it thanks to top, left,...*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /* Property creates a clipping region that sets what part of an element should be shown.
+  First point top-left corner (next points clockwise) (bennettfeely.com/clippy/) */
+
+  &__logo-box {
+    /* & ampersand copies the selector it is in. In this example & = .header */
+    position: absolute;
+    /* Is positioned relative to the nearest positioned ancestor (position: relative;) */ 
+    top: 4rem;
+    left: 4rem;
+  }
+
+  &__logo {
+    height: 3.5rem;
+  }
+  
+  &__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    /*Position to parent element */
+    transform: translate(-50%, -50%);
+    /* Element starting position is left and top border. We centered our element to itself position. */
+    text-align: center;
+    /* Property for .btn because display: inline-block is treated as text */
+  }
+}

@@ -1,0 +1,24 @@
+/* Clearing all elements */
+*,
+*::after,
+*::before {
+/* To prevent odd behaviours of ours pseudoclasses in the future */
+  margin: 0;                  
+  padding: 0;
+  box-sizing: inherit;
+  /* We forced the box-sizing to inherit from the body element*/     
+}
+
+html {
+  // This defines what 1 ram is and because of that we put it in here
+  font-size: 62.5%;
+  /* We set this value to use rem instead of px in our stylesheet.
+  We change 10px for 62.5%(=10px. default browser font size = 16px) to enable users better accessibility to our page. 
+  They can now change default font-size of their browser (if they need to).
+  Previous versions od IE9 does not support rem*/
+}
+
+body {
+  box-sizing: border-box;
+  /* Borders and paddings are no longer added to total width and total height specified for the box */
+}

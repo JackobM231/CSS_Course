@@ -1,0 +1,68 @@
+.btn {
+  /* :link is pseudo class - specjal state of selector that we use to style selector under specjal conditions */
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    /* Underline */
+    padding: 1.5rem 4rem;
+    /* Top,bottom  left,right */
+    display: inline-block;
+    /* Inline-block, the top and bottom margins/paddings are respected, but with display: inline they are not */
+    border-radius: 10rem;
+    transition: all .2s;
+    /* Which properties we want to animate in states: All properties are enabled to be animated, time that we want */
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(-0.3rem);
+    box-shadow: 0 1rem 2rem rgba($color-black,.2);
+    /* <offset-x> <offset-y> <blur-radius>? <spread-radius>? <color>? */
+
+    /* It is after sudoelement only when we have .btn on the hover state */
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6);
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba($color-black,.2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  /* It is treated as child of .btn */
+  &::after {
+    content: "";
+    /* Have to add sth cause otherwise it will not work */
+    display: inline-block;
+    /* Like parent */
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    /* 100% of parent properties */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+
+  &--animated {
+    animation: moveInButton .5s ease-out .75s;
+    /* animation function, duration, timing-function, delay */
+    animation-fill-mode: backwards;
+    /* Set opacity 0 before animation start */
+  }
+}
