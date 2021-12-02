@@ -2,7 +2,7 @@
   max-width: $grid-width;
   /*One of standards is 1140px, our ram id 10px so 1140px = 114rem.
   Max-width fills available space if there is not enought */
-  background-color: #eee;
+  // background-color: #eee;
   margin: 0 auto;
   /* Trick for center block element inside of another block element. Margin at tob and bottom is 0,
   left and right is auto */
@@ -22,7 +22,7 @@
   *= choose all elements that have "col-" wherever in the class attribute.
   $= choose all elements that have "col-" at the end of the class attribute. */ 
 
-    background-color: orange;
+    // background-color: orange;
     float: left;
     /* Because we use here float layouts we need to float these columns. We always float to left side. */
 
