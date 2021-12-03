@@ -5,3 +5,26 @@
   /*We are expanding our background up on the header to cover white triangle 
   95vh-70vh=20vh */
 }
+
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(
+    to right bottom,
+    rgba($color-primary-light, 0.8),
+    rgba($color-primary-dark, 0.8)),
+  url(../img/nat-4.jpg);
+  /* We have two background images first on top gradient, and second under img */
+  background-size: cover;
+  /* Cover entire available space in section */
+  transform: skewY(-7deg);
+  /* Skew entire section */
+  margin-top: -10rem;
+
+  & > * {
+  /* All directed children (it means only first generation) of section features. In our example it will be "row".
+  Without this every further children would be eg. skew*/
+    transform: skewY(7deg);
+    /* Unskew our row */
+  }
+
+}
