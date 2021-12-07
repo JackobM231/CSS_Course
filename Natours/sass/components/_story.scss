@@ -1,0 +1,69 @@
+.story {
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 0 3rem 6rem rgba($color-black, .1);
+  background-color: $color-white;
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 9rem;
+  /* To center image and text after translateX it -3rem */ 
+  font-size: $default-font-size;
+  transform: skewX(-12deg);
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    // background-color: orangered;
+    float: left;
+    /* Tp make rest ot the content floated around it */
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    /* To work on safari */
+    shape-outside: circle(50% at 50% 50%);
+    /* Defines were the content floats around the element
+    Radious of the circle, center of the circle horizontally and vertically.
+    To work the element needs to be floated, and object has defined dimensions */
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    /* If we want to element looks like the shape-outside */
+    transform: translateX(-3rem) skewX(12deg);
+    /* To unskew element inside of story */
+    position: relative;
+  }
+
+  &__img {
+    height: 100%;
+    /* It is 100% of shape dimensions */
+    transform: translateX(-4rem) scale(1.4);
+    backface-visibility: hidden;
+    transition: all .5s;
+  }
+
+  &__text {
+    transform: skewX(12deg);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: $color-white;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden;
+    /* To hide a little move at the end of the animation */
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+
+  &:hover &__img {
+    transform: translateX(-4rem) scale(1);
+    filter: blur(3px) brightness(80%);
+  }
+}
