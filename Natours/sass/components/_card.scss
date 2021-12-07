@@ -1,0 +1,51 @@
+.card {
+  perspective: 150rem;
+  /* Need to be in parent element */
+  -moz-perspective: 150rem;
+  /* Simply to work on the firefox browser */
+  position: relative;
+  height: 50rem;
+  /* To fix lack of height and lack of perspective */
+
+  &__side {
+    color: white;
+    font-size: 2rem;
+    height: 50rem;
+    transition: all .8s ease;
+    /* Ease more smooth animation */
+    position: absolute;
+    /* We give elements absolute position so they will try to fit to their width
+    and their height collapsed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    /* Crutial property. It hides back-part of the element */
+    border-radius: 3px;
+    box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+      &--front {
+        background-color: $color-white;
+      }
+
+      &--back {
+
+        transform: rotateY(180deg);
+
+        &-1 {
+          background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+        }
+      }
+  }
+
+
+  &:hover &__side--front {
+    transform: rotateY(180deg);
+    // We need to rotate it
+  }
+
+  &:hover &__side--back {
+    transform: rotateY(0deg);
+    // It is already rotated. It needs to be rotated back.
+  }
+}
