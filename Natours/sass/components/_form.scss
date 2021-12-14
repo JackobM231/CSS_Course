@@ -1,0 +1,58 @@
+.form {
+  &__group:not(:last-child) {
+  /* We style everything except for the last child */
+    margin-bottom: 2rem;
+  }
+
+  &__input {
+    font-size: 1.5rem;
+    font-family: inherit;
+    /* default browsers doesn't shares fonts family that we have for the web page,
+    so we simply can inherit our font family */
+    color: inherit;
+    padding: 1.5rem 2rem;
+    border-radius: 2px;
+    background-color: rgba($color-white, .5);
+    border: none;
+    border-bottom: 3px solid transparent;
+    /* To avoid of moving the border 3px during focus */
+    width: 90%;
+    display: block;
+
+    &:focus {
+      /* We should always make focus element visible */
+      outline: none;
+      box-shadow: 0 1rem 2rem rgba($color-black, .1);
+      border-bottom: 3px solid $color-primary;
+      /* border width, border style, border color */
+
+      &:invalid {
+        border-bottom: 3px solid $color-secondary-dark;
+      }
+    
+      &::-webkit-input-placeholder {
+      /* It specifies input-placeholder (in form) properties */
+        color: $color-grey-dark-2;
+      }
+    }
+  }
+
+  &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: block;
+    /* To use box models properties of element eg. margins */
+    transition: all .3s;
+  }
+
+  &__input:placeholder-shown + &__label {
+    opacity: 0;
+    visibility: hidden;
+    /* Only opacity makes that element is on page only transparent,
+    but with visibility hidden element is realy gone. 
+    Later we want animate opacity */
+    transform: translateY(-4rem);
+  }
+}
