@@ -1,5 +1,6 @@
 .btn {
   /* :link is pseudo class - specjal state of selector that we use to style selector under specjal conditions */
+  &, //simply for button which hasn't got link and visited
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -14,6 +15,10 @@
     /* Which properties we want to animate in states: All properties are enabled to be animated, time that we want */
     position: relative;
     font-size: $default-font-size;
+
+    // Change for the <button> element
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -28,7 +33,9 @@
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba($color-black,.2);
   }

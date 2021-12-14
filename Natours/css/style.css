@@ -128,22 +128,22 @@ body {
     margin-bottom: 3rem; }
 
 .u-center-text {
-  text-align: center; }
+  text-align: center !important; }
 
 .u-margin-bottom-small {
-  margin-bottom: 1.5rem; }
+  margin-bottom: 1.5rem !important; }
 
 .u-margin-bottom-medium {
-  margin-bottom: 4em; }
+  margin-bottom: 4em !important; }
 
 .u-margin-bottom-big {
-  margin-bottom: 8rem; }
+  margin-bottom: 8rem !important; }
 
 .u-margin-top-big {
-  margin-top: 8rem; }
+  margin-top: 8rem !important; }
 
 .u-margin-top-huge {
-  margin-top: 10rem; }
+  margin-top: 10rem !important; }
 
 .bg-video {
   position: absolute;
@@ -164,7 +164,7 @@ body {
 .btn {
   /* :link is pseudo class - specjal state of selector that we use to style selector under specjal conditions */
   /* It is treated as child of .btn */ }
-  .btn:link, .btn:visited {
+  .btn, .btn:link, .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
     /* Underline */
@@ -176,7 +176,9 @@ body {
     transition: all .2s;
     /* Which properties we want to animate in states: All properties are enabled to be animated, time that we want */
     position: relative;
-    font-size: 1.6rem; }
+    font-size: 1.6rem;
+    border: none;
+    cursor: pointer; }
   .btn:hover {
     transform: translateY(-0.3rem);
     box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
@@ -185,7 +187,8 @@ body {
     .btn:hover::after {
       transform: scaleX(1.4) scaleY(1.6);
       opacity: 0; }
-  .btn:active {
+  .btn:active, .btn:focus {
+    outline: none;
     transform: translateY(-0.1rem);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
   .btn--white {
@@ -416,7 +419,8 @@ body {
   border-bottom: 3px solid transparent;
   /* To avoid of moving the border 3px during focus */
   width: 90%;
-  display: block; }
+  display: block;
+  transition: all .3s; }
   .form__input:focus {
     /* We should always make focus element visible */
     outline: none;
@@ -446,6 +450,50 @@ body {
     Later we want animate opacity */
   transform: translateY(-4rem); }
 
+.form__radio-group {
+  width: 49%;
+  display: inline-block; }
+
+.form__radio-input {
+  display: none;
+  /* Now it is not visible but still works (checked/unchecked) */ }
+
+.form__radio-label {
+  font-size: 1.6rem;
+  cursor: pointer;
+  /* differen cursour during pointing down */
+  position: relative;
+  padding-left: 5rem; }
+
+.form__radio-button {
+  height: 3rem;
+  width: 3rem;
+  border: 5px solid #55c57a;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  top: -.4rem; }
+  .form__radio-button::after {
+    content: "";
+    /* Using sudo element we need to use content property and set it to come value/empty.
+      Also display */
+    display: block;
+    height: 1.3rem;
+    width: 1.3rem;
+    border-radius: 50%;
+    position: absolute;
+    /* Parent element radio-button with specified position not necessary relative position */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #55c57a;
+    opacity: 0;
+    transition: opacity .2s; }
+
+.form__radio-input:checked ~ .form__radio-label .form__radio-button::after {
+  opacity: 1; }
+
 .story {
   width: 75%;
   margin: 0 auto;
@@ -471,7 +519,7 @@ body {
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
     /* If we want to element looks like the shape-outside */
-    transform: translateX(-3rem) skewX(12deg);
+    transform: translateX(-3rem) skewX(11deg);
     /* To unskew element inside of story */
     position: relative; }
   .story__img {
