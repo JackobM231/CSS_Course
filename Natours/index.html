@@ -47,7 +47,7 @@
           <!--Span element is a generic inline container for phrasing content, which does not inherently represent anything.
           It can be used to group elements for styling purposes -->
         </h1>
-        <a href="#" class="btn btn--white btn--animated">Discover our Tour</a><!-- block--modifier -->
+        <a href="#section-tours" class="btn btn--white btn--animated">Discover our Tour</a><!-- block--modifier -->
       </div> 
     </header>
 
@@ -127,7 +127,7 @@
         </div>
       </section>
 
-      <section class="section-tours">
+      <section class="section-tours" id="section-tours">
         <div class="u-center-text u-margin-bottom-big"><!-- utility-class that center text inside -->
           <h2 class="heading-secondary">
             Most popular tours
@@ -160,7 +160,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$297</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -192,7 +192,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$497</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -224,7 +224,7 @@
                     <p class="card__price-only">Only</p>
                     <p class="card__price-value">$897</p>
                   </div>
-                  <a href="#" class="btn btn--white">Book now!</a>
+                  <a href="#popup" class="btn btn--white">Book now!</a>
                 </div>
               </div>
             </div>
@@ -362,6 +362,24 @@
       </div>
 
     </footer>
+
+    <div class="popup" id="popup">
+      <div class="popup__content">
+        <div class="popup__left">
+            <img src="img/nat-8.jpg" alt="Tour photo" class="popup__img">
+            <img src="img/nat-9.jpg" alt="Tour photo" class="popup__img">
+        </div>
+        <div class="popup__right">
+          <a href="#section-tours" class="popup__close">&times;</a><!--&times; is x sign-->
+          <h2 class="heading-secondary u-margin-bottom-small">Start booking now</h2>
+          <h3 class="headnig-tertiary u-margin-bottom-small">Important &ndash; Please read these terms before booking</h3>
+          <p class="popup__text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Elementum nibh tellus molestie nunc. Neque vitae tempus quam pellentesque nec nam. Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis. Vel pretium lectus quam id leo in vitae turpis massa. Viverra accumsan in nisl nisi. Enim lobortis scelerisque fermentum dui faucibus in ornare. Enim sed faucibus turpis in eu. Quis eleifend quam adipiscing vitae proin.
+          </p>
+          <a href="#" class="btn btn--green">Book now</a>
+        </div>
+      </div>
+    </div>
 
 
 

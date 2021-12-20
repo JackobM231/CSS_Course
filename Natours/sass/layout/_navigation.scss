@@ -52,6 +52,7 @@
 
   &__list {
     @include center_horizontal_and_vertical;
+    
     list-style: none;
     text-align: center;
     width: 100%;
@@ -157,5 +158,4 @@
     top: 0;
     transform: rotate(45deg);
   }
-
 }
