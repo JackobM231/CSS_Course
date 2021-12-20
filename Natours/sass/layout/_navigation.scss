@@ -12,6 +12,10 @@
     right: 6rem;
     border-radius: 50%;
     z-index: 2000;
+    box-shadow: 0 1rem 3rem rgba($color-black, .1);
+    text-align: center;
+    /* To center span element */
+    cursor: pointer;
   }
 
   &__background {
@@ -27,25 +31,30 @@
     /* This gradient starts at the center of the element and fades out
      in all outer directions */
      z-index: 1000;
-
-     transform: scale(80);
+     transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+     /* Custom animation, pages: cubic-bezier.com, easings.net */
   }
 
   &__nav {
     height: 100vh;
-    width: 100%;
     /* As block element it is automatically take all avilable width */
     position: fixed;
     /* Entire page */
     top: 0;
-    right: 0;
+    left: 0;
     z-index: 1500;
+
+    opacity: 0;
+    width: 0;
+    /* To be invisible and there was no possibility of choosing it */
+    transition: all .8s cubic-bezier(1,-0.69,.03,1.33);
   }
 
   &__list {
     @include center_horizontal_and_vertical;
     list-style: none;
     text-align: center;
+    width: 100%;
   }
 
   &__item {
@@ -82,4 +91,71 @@
       transform: translateX(1rem);
     }
   }
+
+
+  //FUNCTIONALITY
+  /* After choosing checkbox */
+  &__checkbox:checked ~ &__background {
+    transform: scale(80);
+  }
+
+  &__checkbox:checked ~ &__nav {
+    opacity: 1;
+    width: 100%;
+  }
+  /*...............*/
+
+
+  //ICON
+  &__icon {
+    position: relative;
+    margin-top: 3.5rem;
+
+    &, //span element
+    &::before, // before span element
+    &::after { // after span element
+      width: 3rem;
+      height: 2px;
+      background-color: $color-grey-dark-3;
+      display: inline-block;
+
+    }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        transition: all .2s;
+    }
+
+    &::before { top: -.8rem; }
+    &::after { top: .8rem; }
+  }
+
+  &__button:hover &__icon::before {
+    /* Icon is a child element od button */
+    top: -1rem;
+  }
+
+  &__button:hover &__icon::after {
+    /* Icon is a child element od button */
+    top: 1rem;
+  }
+
+  &__checkbox:checked + &__button &__icon {
+    /* If __checkbox is checked we select its direct brother and next its children */
+    background-color: transparent;
+  }
+
+  &__checkbox:checked + &__button &__icon::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__checkbox:checked + &__button &__icon::after {
+    top: 0;
+    transform: rotate(45deg);
+  }
+
 }
