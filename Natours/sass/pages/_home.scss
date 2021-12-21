@@ -4,6 +4,10 @@
   margin-top: -20vh;
   /*We are expanding our background up on the header to cover white triangle 
   95vh-70vh=20vh */
+
+  @include respond(tab-port) {
+    padding: 20rem 0;
+  }
 }
 
 .section-features {
@@ -27,6 +31,9 @@
     /* Unskew our row */
   }
 
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
 }
 
 .section-tours {
@@ -34,16 +41,28 @@
   padding: 25rem 0 15rem 0;
   /* Top Right Bottom Left */
   margin-top: -10rem;
+
+  @include respond(tab-port) {
+    padding: 20rem 0 10rem 0;
+  }
 }
 
 .section-stories {
   position: relative;
   padding: 15rem 0;
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
 }
 
 .section-book {
   padding: 15rem 0;
   background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+
+  @include respond(tab-port) {
+    padding: 10rem 0;
+  }
 }
 
 .book {

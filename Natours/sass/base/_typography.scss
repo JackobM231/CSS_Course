@@ -6,8 +6,6 @@ body {
   line-height: 1.7;
   /* 1.7 times bigger than predefined line-height */           
   color: $color-grey-dark;
-  padding: 3rem;
-  /* Padding is not getting iherited. It make 30px padding around entire body */
 }
 
 .heading-primary {
@@ -31,6 +29,10 @@ body {
     animation-timing-function: ease-out;
     /* The speed of the animation depending on its phase */
   
+    @include respond(phone) {
+      letter-spacing: 1rem;
+      font-family: 5rem;
+    }
     /* 
     Animation-delay: 3s;
     Animation-iteration-count: 3;  X times it has to be run
@@ -45,6 +47,10 @@ body {
   
     animation: moveInRight 1s ease-out;
     /* CSS knows what is what (animation-name, duration, timing-function)*/
+  
+    @include respond(phone) {
+      letter-spacing: .5rem;
+    }
   }
 }
 
@@ -63,6 +69,15 @@ body {
   /* Now we want to see the background(gradient), not the text color */
   letter-spacing: .2rem;
   transition: all .2s;
+
+  @include respond(tab-port) {
+    font-size: 3rem
+  }
+
+  @include respond(phone) {
+    /* Phone is smaller so it is after tab-port */
+    font-size: 2.5rem
+  }
 
   &:hover {
     transform: skewY(2deg) skewX(15deg) scale(1.1);

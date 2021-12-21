@@ -13,11 +13,16 @@
   /* Top(bottom or center) of background will always be in top border of container */
   position: relative;
   /*Positioned relative to its normal position. Now we can move it thanks to top, left,...*/
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 95%);
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 95%);
   /* Property creates a clipping region that sets what part of an element should be shown.
   First point top-left corner (next points clockwise) (bennettfeely.com/clippy/) */
 
+  @include respond(phone) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+  
   &__logo-box {
     /* & ampersand copies the selector it is in. In this example & = .header */
     position: absolute;
