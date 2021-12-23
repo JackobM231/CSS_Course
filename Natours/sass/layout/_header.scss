@@ -19,8 +19,8 @@
   First point top-left corner (next points clockwise) (bennettfeely.com/clippy/) */
 
   @include respond(phone) {
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 78vh, 0 90%);
+    clip-path: polygon(0 0, 100% 0, 100% 78vh, 0 90%);
   }
   
   &__logo-box {

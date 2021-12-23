@@ -107,4 +107,45 @@
       color: $color-primary;
     }
   }
+
+  @include respond(tab-port) {
+
+    &__left {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+    }
+  
+    &__right {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 3rem 5rem;
+    }
+  
+    &__img {
+      float: left;
+      width: 50%;
+      /* Entire parent's contener width */
+    }
+  
+    &__text {
+      text-align: left;
+    }
+  }
+
+  @include respond(phone) {
+  
+    &__text {
+      -moz-column-count: 1;
+      column-count: 1;
+      /* Creates 1 column */
+  
+      -moz-hyphens: auto;
+      -ms-hyphens: auto;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+      /* Automaticly sets where to put the hyphens */
+    }
+  }
 }
